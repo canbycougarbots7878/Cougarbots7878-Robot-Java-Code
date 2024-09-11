@@ -10,17 +10,17 @@ public class MovementTest {
 
     private ElapsedTime runtime = new ElapsedTime();
 
-    private DcMotor FrontRight = null;
-    private DcMotor FrontLeft = null;
-    private DcMotor BackRight = null;
-    private DcMotor BackLeft = null;
+    private DcMotor motorFR = null;
+    private DcMotor motorFL = null;
+    private DcMotor motorBR = null;
+    private DcMotor motorBL = null;
 
     public void runOpMode() {
 
-        FrontRight.setDirection(DcMotor.Direction.FORWARD);
-        FrontLeft.setDirection(DcMotor.Direction.REVERSE);
-        BackRight.setDirection(DcMotor.Direction.FORWARD);
-        BackLeft.setDirection(DcMotor.Direction.REVERSE);
+        motorFR.setDirection(DcMotor.Direction.FORWARD);
+        motorFL.setDirection(DcMotor.Direction.REVERSE);
+        motorBR.setDirection(DcMotor.Direction.FORWARD);
+        motorBL.setDirection(DcMotor.Direction.REVERSE);
 
         telemetry.addData("Status", "Initialized");
         telemetry.update();
@@ -74,10 +74,10 @@ public class MovementTest {
             */
 
             // Send calculated power to wheels
-            leftFrontDrive.setPower(leftFrontPower);
-            rightFrontDrive.setPower(rightFrontPower);
-            leftBackDrive.setPower(leftBackPower);
-            rightBackDrive.setPower(rightBackPower);
+            motorFR.setPower(leftFrontPower);
+            motorFL.setPower(rightFrontPower);
+            motorBR.setPower(leftBackPower);
+            motorBL.setPower(rightBackPower);
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
